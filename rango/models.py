@@ -5,6 +5,8 @@ from django.db import models
 # Category model
 class Category(models.Model):
     name = models.CharField(max_length=128, unique=True)                 # max length of 128 characters for name field in Category model  
+    views = models.IntegerField(default=0)                               # default value is 0
+    likes = models.IntegerField(default=0)                               # default value is 0
 
     class Meta:                                                          # Meta class for Category model
         verbose_name_plural = 'Categories'                               # verbose name for Category model
