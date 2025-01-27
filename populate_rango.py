@@ -3,7 +3,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE',
                        'tango_with_django_project.settings')    # set environment variable for Django settings module
 
 import django
-django.setup()                                                 # setup Django
+django.setup()                                                  # setup Django
 from rango.models import Category, Page                         # import Category and Page models
 
 

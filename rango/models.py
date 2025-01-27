@@ -1,4 +1,5 @@
 from django.db import models
+from django.template.defaultfilters import slugify
 
 # Create your models here.
 
@@ -7,9 +8,14 @@ class Category(models.Model):
     name = models.CharField(max_length=128, unique=True)                 # max length of 128 characters for name field in Category model  
     views = models.IntegerField(default=0)                               # default value is 0
     likes = models.IntegerField(default=0)                               # default value is 0
+    slug = models.SlugField(unique=True)                                 # slug field for Category model
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Category, self).save(*args, **kwargs)
 
     class Meta:                                                          # Meta class for Category model
-        verbose_name_plural = 'Categories'                               # verbose name for Category model
+        verbose_name_plural = 'categories'                               # verbose name for Category model
 
     def __str__(self):                                                   # string representation of Category model
         return self.name                                                 # return name of Category model
