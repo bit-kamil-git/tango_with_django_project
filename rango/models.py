@@ -3,9 +3,10 @@ from django.template.defaultfilters import slugify
 
 # Create your models here.
 
+max = 128
 # Category model
-class Category(models.Model):
-    name = models.CharField(max_length=128, unique=True)                 # max length of 128 characters for name field in Category model  
+class Category(models.Model):                                             
+    name = models.CharField(max_length=max, unique=True)                 # max length of 128 characters for name field in Category model  
     views = models.IntegerField(default=0)                               # default value is 0
     likes = models.IntegerField(default=0)                               # default value is 0
     slug = models.SlugField(unique=True)                                 # slug field for Category model
@@ -24,7 +25,7 @@ class Category(models.Model):
 # Page model
 class Page(models.Model):   
     category = models.ForeignKey(Category, on_delete=models.CASCADE)     # foreign key to Category model with CASCADE delete
-    title = models.CharField(max_length=128)                             # max length of 128 characters for title field in Page model 
+    title = models.CharField(max_length = max)                             # max length of 128 characters for title field in Page model 
     url = models.URLField()                                              # URL field for url field in Page model 
     views = models.IntegerField(default=0)                               # default value is 0
 
