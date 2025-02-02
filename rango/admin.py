@@ -13,3 +13,4 @@ class CategoryAdmin(admin.ModelAdmin):
 # Register your models here.
 admin.site.register(Category, CategoryAdmin)              # register Category model
 admin.site.register(Page, PageAdmin)                  # register Page model
+admin.site.register(UserProfile)                      # register UserProfile model
